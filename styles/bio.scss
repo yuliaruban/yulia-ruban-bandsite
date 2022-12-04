@@ -1,120 +1,77 @@
 @use './partials/global' as *;
 @use './partials/variables' as *;
 
-.navigation {
-    display: flex;
-    flex-direction: column;
-    background-color: $primary-color-BandSite-Black;
-    @media (min-width:$tablet-width) {
-        flex-direction: row;
-        align-items: center;
-    }
-    &__logo {
-        display: flex;
-        margin: auto;
-        padding: 2rem 0;
-        max-height: 20px;
-        max-width: 120px;
-        @media (min-width:$tablet-width) {
-            padding: 4.5rem 9rem 4.5rem 4.5rem;
-        }
-    }
-    &__menu {
-        display: flex;
-        list-style: none;
-        width: 100%;
-        @media (min-width:$tablet-width) {
-            align-items: center;
-            gap: 9rem;
-        }
-        &__item {
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            padding-bottom: 2rem;
-            @media (min-width:$tablet-width) {
-                width: fit-content;
-                padding: 4rem 0;
-            }
-            &--active {
-                border-bottom: 4px solid white;
-            }
-            &:hover {
-                border-bottom: 4px solid white;
-            }    
-        }
-        &__link {
-            color: $secondary-color-Mercury;
-            text-decoration: none;
-            font-size: 14px;
-            line-height: 22px;
-            &--active {
-                font-family: "Avenir Next Demi";
-            }
-            @media (min-width:$tablet-width) {
-                font-size: 18px;
-                line-height: 22px;
-            }
-        }
-    }
-}
-
 .hero {
-    &__heading {
+    background: 
+    linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+    ),
+    url(../assets/images/hero-bio.jpg);
+    background-color: rgb(50, 50, 50, .5);
+    background-size: cover;
+    background-position: center;
+    height: 60vw;
+    object-fit: cover;
+    @media (min-width:$tablet-width) {
+        height: 70vh;
+        background-position-y: 100%;
+    }
+    @media (min-width:$desktop-width) {
+        background-position-y: 25%;
+    }
+
+    &__wrapper {
+        height: 60vw;
         display: flex;
         align-items: center;
-        padding-left: 2rem;
-        background: 
-        linear-gradient(
-            rgba(50, 50, 50, 0.5),
-            rgba(50, 50, 50, 0.5)
-        ),
-        url(../assets/images/hero-bio.jpg);
-        background-color: rgb(50, 50, 50, .5);
-        background-size: cover;
-        background-position: center;
-        height: 60vw;
-        object-fit: cover;
+        margin: 0 2rem;
+        @media (min-width:$tablet-width) {
+            height: 70vh;
+            margin: 0 4.5rem;
+        }
+        @media (min-width:$desktop-width) {
+            @include desktop;
+        }
+    }
+
+    &__heading {
         color: $primary-color-BandSite-White;
-        font-size: 24px;
+        @include font-header;
         font-family: "Avenir Next Demi";
-        line-height: 32px;
         @media (min-width:$tablet-width) {
             font-size: 60px;
             line-height: 68px;
-            padding-left: 4.5rem;
-            height: 70vh;
-            background-position-y: 100%;
-        }
-        @media (min-width:$desktop-width) {
-            background-position-y: 25%;
         }
     }
 }
 
 .description {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 2rem 0 2rem;
-    gap: 2rem;
-    @media (min-width:$tablet-width) {
-        padding: 4.5rem;
-        gap: 4.5rem;
+    &__wrapper {
+        @include display-column;
+        margin: 0 2rem;
+        padding-top: 2rem;
+        gap: 2rem;
+        @media (min-width:$tablet-width) {
+            padding: 4.5rem 0;
+            margin: 0 4.5rem;
+            gap: 4.5rem;
+        }
+        @media (min-width:$desktop-width) {
+            @include desktop;
+        }
     }
     &__heading {
-        font-size: 24px;
+        @include font-header;
         font-family: "Avenir Next Demi";
-        line-height: 32px;
         padding-top: 1rem;
         @media (min-width:$tablet-width) {
-            font-size: 36px;
-            line-height: 44px;
+            @include font-section;
             padding-top: 1.5rem;
         }
     }
     &__container {
-        display: flex;
-        flex-direction: column;
+        @include display-column;
         gap: 2rem;
         @media (min-width:$tablet-width) {
             padding: 0 4.5rem;
@@ -128,25 +85,19 @@
         }
     }   
     &__image {
-        height: 50vw;
+        aspect-ratio: 16/9;
         width: 100%;
         object-fit: cover;
-        @media (min-width:$tablet-width) {
-            height: 40vw;
-        }
     }
     &__quote {
-        font-size: 14px;
+        @include font-subheader;
         font-family: "Avenir Next Demi";
-        line-height: 22px;
         .quote{
-            font-size: 14px;
+            @include font-subheader;
             font-family: "Avenir Next Demi";
-            line-height: 22px;
         }
         @media (min-width:$tablet-width) {
-            font-size: 24px;
-            line-height: 32px;
+            @include font-header;
             .quote {
                 font-size: 18px;
                 line-height: 22px;
@@ -156,56 +107,68 @@
             width: 75%;
         }
     }
+
     &__subheading {
-        font-size: 14px;
-        line-height: 22px;
+        @include font-subheader;
         padding-top: 1rem;
         @media (min-width:$tablet-width) {
             padding-top: 1.5rem;
-            font-size: 24px;
-            line-height: 32px;
+            @include font-header;
         } 
     }
+
     @media (min-width:$tablet-width) {
        .paragraph__container {
             display: flex;
             gap: 6rem;
         }
     } 
+
     &__paragraph {
-        font-size: 13px;
-        line-height: 18px;
+        @include font-body;
         @media (min-width:$tablet-width) {
-            font-size: 14px;
-            line-height: 22px;
+            @include font-subheader;
         } 
     }     
 }
 
 .gallery {
     background-color: $secondary-color-Alabaster;
-    &__heading {
-        font-size: 24px;
-        font-family: "Avenir Next Demi";
-        line-height: 32px;
-        padding: 3rem 0 0 2rem;
+
+    &__wrapper {
+        @include display-column;
+        flex-wrap: wrap;
+        margin: 0 2rem;
         @media (min-width:$tablet-width) {
-            padding: 6rem 0 0 4.5rem;
-            font-size: 36px;
-            line-height: 44px;
+            margin: 0 4.5rem;
+        }
+        @media (min-width:$desktop-width) {
+            @include desktop;
         }
     }
+
+    &__heading {
+        @include font-header;
+        font-family: "Avenir Next Demi";
+        padding-top: 3rem;
+        @media (min-width:$tablet-width) {
+            padding-top: 6rem;
+            @include font-section;
+        }
+    }
+
     &__container {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        padding: 2rem;
+        padding: 2rem 0;
         @media (min-width:$tablet-width) {
-            padding: 4.5rem;
+            padding: 4.5rem 0;
             gap: 3rem;
             justify-content: space-between;
         }
     }
+
     &__image {
         width: 100%;
         object-fit: cover;
@@ -214,125 +177,9 @@
             filter: grayscale(0);
         }
         @media (min-width:$tablet-width) {
-            width: 28vw;
-        }
-        @media (min-width:$desktop-width) {
-            width: 26vw;
+            width: 31%;
         }
     }
 }
 
-.footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 2rem;
-    position: relative;
-    background-color: $primary-color-BandSite-Black;
-    color: $primary-color-BandSite-White;
-    @media (min-width:$tablet-width) {
-        flex-direction: row;
-        padding: 4.5rem;
-        gap: 4.5rem;
-    }
-    .social__container {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        @media (min-width:$tablet-width) {
-            flex-direction: row;
-            align-items: baseline;
-            gap: 4.5rem;
-        }
-        @media (min-width:$desktop-width) {
-            gap: 4rem;
-        }
-    }
-    &__heading {
-        font-size: 24px;
-        font-family: "Avenir Next Demi";
-        line-height: 32px;
-        padding-top: 1.5rem;
-        @media (min-width:$tablet-width) {
-            font-size: 36px;
-            line-height: 44px;
-        }
-    }
-    &__social {
-        display: flex;
-        flex-direction: row;
-        gap: 3rem;
-    }
-    &__container {
-        width: 100%;
-    }
-    @media (min-width:$tablet-width) {
-        &__container {
-            display: flex;
-            gap: 6rem;
-        }
-    }
-    @media (min-width:$desktop-width) {
-        &__container {
-            gap: 5rem;
-        }
-    }
-    &__contact {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        padding-bottom: 2rem;
-        @media (min-width:$tablet-width) {
-            gap: 4.5rem;
-        }
-        &__heading {
-            font-size: 13px;
-            font-family: "Avenir Next Demi";
-            line-height: 18px;
-            @media (min-width:$tablet-width) {
-                font-size: 14px;
-                line-height: 20px;
-            }
-        }
-        &__description {
-            font-size: 13px;
-            line-height: 18px;
-            @media (min-width:$tablet-width) {
-                font-size: 14px;
-                line-height: 20px;
-            }
-        }
-        &__mail {
-            font-size: 13px;
-            line-height: 18px;
-            text-decoration: none;
-            color: $primary-color-BandSite-White;
-            @media (min-width:$tablet-width) {
-                font-size: 14px;
-                line-height: 20px;
-            }
-        }
-    }
-    &__logo {
-        margin-top: 4rem;
-        max-height: 20px;
-        max-width: 120px;
-        @media (min-width:$tablet-width) {
-            position: absolute;
-            top: 4rem;
-            right: 4.5rem;
-        }
-        @media (min-width:$desktop-width) {
-            top: 0;
-        }
-    }
-    &__copy {
-        font-size: 10px;
-        line-height: 20px;
-        width: 100%;
-        @media (min-width:$tablet-width) {
-            font-size: 12px;
-        }
-    }
-}
+
