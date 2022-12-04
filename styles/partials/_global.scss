@@ -4,19 +4,228 @@
     font-family: "Avenir Next Regular";
     font-size: 8px;
 }
+
 @font-face {
     font-family: "Avenir Next Regular";
     src: url(../assets/fonts/AvenirNextLTPro-Regular.otf) format("opentype"),
     url(../assets/fonts/AvenirNextLTPro-Regular.ttf) format("truetype");
 }
+
 @font-face {
     font-family: "Avenir Next Demi";
     src: url(../assets/fonts/AvenirNextLTPro-Demi.otf) format("opentype"),
     url(../assets/fonts/AvenirNextLTPro-Demi.ttf) format("truetype");
 }
+
 @font-face {
     font-family: "Avenir Next Bold";
     src: url(../assets/fonts/AvenirNextLTPro-Bold.otf) format("opentype"),
     url(../assets/fonts/AvenirNextLTPro-Bold.ttf) format("truetype");
 }
-  
+
+@mixin display-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin display-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin font-header {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+@mixin font-subheader {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin font-body {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+@mixin font-section {
+    font-size: 36px;
+    line-height: 44px;
+}
+
+@mixin desktop {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+@mixin logo {
+    max-height: 20px;
+    max-width: 120px;
+}
+
+header {
+    background-color: $primary-color-BandSite-Black;
+}
+
+.navigation {
+    @include display-column;
+    @media (min-width:$tablet-width) {
+        flex-direction: row;
+        align-items: center;
+        margin: 0 4.5rem;
+    }
+    @media (min-width:$desktop-width) {
+        @include desktop;
+    }
+
+    &__logo {
+        display: flex;
+        margin: auto;
+        padding: 2rem 0;
+        @include logo;
+        @media (min-width:$tablet-width) {
+            padding-right: 9rem;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        @media (min-width:$tablet-width) {
+            align-items: center;
+            gap: 9rem;
+        }
+
+        &__item {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 2rem;
+            @media (min-width:$tablet-width) {
+                width: fit-content;
+                padding: 4rem 0;
+            }
+            &--active {
+                border-bottom: 4px solid white;
+            }
+            &:hover {
+                border-bottom: 4px solid white;
+            }    
+        }
+
+        &__link {
+            color: $secondary-color-Mercury;
+            text-decoration: none;
+            @include font-subheader;
+            &--active {
+                font-family: "Avenir Next Demi";
+            }
+            @media (min-width:$tablet-width) {
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: $primary-color-BandSite-Black;
+    color: $primary-color-BandSite-White;
+    &__wrapper {
+        @include display-column;
+        flex-wrap: wrap;
+        padding: 2rem 0;
+        margin: 0 2rem;
+        gap: 2rem;
+        position: relative;
+        @media (min-width:$tablet-width) {
+            flex-direction: row;
+            padding: 4.5rem 0;
+            margin: 0 4.5rem;
+            gap: 2rem;
+        }
+        @media (min-width:$desktop-width) {
+            @include desktop;
+        }
+    }  
+
+    .social__container {
+        @include display-column;
+        gap: 2rem;
+        @media (min-width:$tablet-width) {
+            flex-direction: row;
+            align-items: baseline;
+            gap: 4.5rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width:$desktop-width) {
+            gap: 4rem;
+        }
+    }
+
+    &__heading {
+        @include font-header;
+        font-family: "Avenir Next Demi";
+        padding-top: 1.5rem;
+        @media (min-width:$tablet-width) {
+            @include font-section;
+        }
+    }
+
+    &__social {
+        @include display-row;
+        gap: 3rem;
+    }
+
+    &__container {
+        width: 100%;
+        @media (min-width:$tablet-width) {
+            display: flex;
+            gap: 6rem;
+        }
+        @media (min-width:$desktop-width) {
+            gap: 5rem;
+        }
+    }
+    
+    &__contact {
+        @include display-column;
+        gap: 2rem;
+        padding-bottom: 2rem;
+        @include font-body;
+        @media (min-width:$tablet-width) {
+            font-size: 14px;
+            line-height: 20px;
+            gap: 4.5rem;
+        }
+
+        &__heading {
+            font-family: "Avenir Next Demi";
+        }
+
+        &__mail {
+            text-decoration: none;
+            color: $primary-color-BandSite-White;
+        }
+    }
+
+    &__logo {
+        padding-top: 4rem;
+        @include logo;
+        @media (min-width:$tablet-width) {
+            position: absolute;
+            top: 4rem;
+            right: 0.5rem;
+        }
+    }
+
+    &__copy {
+        font-size: 10px;
+        line-height: 20px;
+        width: 100%;
+        @media (min-width:$tablet-width) {
+            font-size: 12px;
+        }
+    }
+}
