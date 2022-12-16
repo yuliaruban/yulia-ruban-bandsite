@@ -8,7 +8,7 @@
         rgba(50, 50, 50, 0.5)
     ),
     url(../assets/images/hero-shows.jpg);
-    background-color: rgb(50, 50, 50, .5);
+    background-color: rgba(50, 50, 50, .5);
     background-size: cover;
     background-position: center;
     height: 90vw;
@@ -47,7 +47,7 @@
     }
     
     &__heading {
-        color: $primary-color-BandSite-White;
+        color: $color-White;
         @include font-header;
         font-family: "Avenir Next Demi";
         @media (min-width:$tablet-width) {
@@ -57,7 +57,7 @@
     }
 
     &__subheading {
-        color: $primary-color-BandSite-White;
+        color: $color-White;
         @include font-subheader;
         @media (min-width:$tablet-width) {
             font-size: 36px;
@@ -119,7 +119,7 @@
                 width: 33.33%;
                 @include font-body;
                 font-family: "Avenir Next Demi";  
-                color: $primary-color-Silver;
+                color: $color-Silver;
             }
         }    
     }
@@ -127,7 +127,7 @@
     &__list {
         @include display-column;
         padding: 2rem;
-        border-bottom: 1px solid $secondary-color-Mercury;
+        border-bottom: 1px solid $color-Mercury;
         @media (min-width:$tablet-width) {
             flex-direction: row;  
             justify-content: space-between;
@@ -137,7 +137,7 @@
             font-size: 10px;
             line-height: 20px;
             font-family: "Avenir Next Demi";  
-            color: $primary-color-Silver;
+            color: $color-Silver;
             @media (min-width:$tablet-width) {
                 display: none;   
             }
@@ -161,8 +161,8 @@
             padding: 1rem 0;
             text-align: center;
             border-radius: 4px;
-            background-color: $primary-color-BandSite-Black;
-            color: $primary-color-BandSite-White;
+            background-color: $color-Black;
+            color: $color-White;
             text-decoration: none;
             @media (min-width:$tablet-width) {
                 padding: 1rem 3rem; 
