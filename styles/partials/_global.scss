@@ -1,8 +1,11 @@
+@use './variables' as *;
+
 * {
     margin: 0;
     padding: 0;
     font-family: "Avenir Next Regular";
     font-size: 8px;
+    color: $primary-color-BandSite-Black;
 }
 
 @font-face {
@@ -46,6 +49,11 @@
 @mixin font-body {
     font-size: 13px;
     line-height: 18px;
+}
+
+@mixin font-footer {
+    font-size: 14px;
+    line-height: 20px;
 }
 
 @mixin font-section {
@@ -167,6 +175,7 @@ header {
     &__heading {
         @include font-header;
         font-family: "Avenir Next Demi";
+        color: $primary-color-BandSite-White;
         padding-top: 1.5rem;
         @media (min-width:$tablet-width) {
             @include font-section;
@@ -193,20 +202,34 @@ header {
         @include display-column;
         gap: 2rem;
         padding-bottom: 2rem;
-        @include font-body;
         @media (min-width:$tablet-width) {
-            font-size: 14px;
-            line-height: 20px;
             gap: 4.5rem;
         }
 
         &__heading {
+            @include font-body;
             font-family: "Avenir Next Demi";
+            color: $primary-color-BandSite-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
+        }
+
+        &__description {
+            @include font-body;
+            color: $primary-color-BandSite-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
         }
 
         &__mail {
+            @include font-body;
             text-decoration: none;
             color: $primary-color-BandSite-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
         }
     }
 
@@ -223,6 +246,7 @@ header {
     &__copy {
         font-size: 10px;
         line-height: 20px;
+        color: $primary-color-BandSite-White;
         width: 100%;
         @media (min-width:$tablet-width) {
             font-size: 12px;
