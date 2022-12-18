@@ -218,8 +218,8 @@
 
     &__user {
         border-radius: 50%;
-        width: 4rem;
-        height: 4rem;
+        width: 4.5rem;
+        height: 4.5rem;
         object-fit: cover;
         @media (min-width:$tablet-width) {
             min-width: 6rem;
@@ -245,6 +245,13 @@
             background-color: $color-Alabaster;
             border: 1px solid $color-Mercury;
             border-radius: 4px;
+            outline: none;
+            &:focus {
+                border: 1px solid $color-Black;
+                &:invalid {
+                    border: 1px solid #D22D2D;
+                }
+            }
             @media (min-width:$tablet-width) {
                 @include font-subheader;    
             }
@@ -259,15 +266,9 @@
     }
 
     &__button {
-        margin-bottom: 2rem;
         @include font-body;
-        font-family: "Avenir Next Demi";
-        padding: 1rem 0;
-        text-align: center;
-        border-radius: 4px;
-        background-color: $color-Black;
-        color: $color-White;
-        border: none;
+        @include button;
+        margin-bottom: 2rem;
         @media (min-width:$tablet-width) {
             width: fit-content;
             margin-left: auto;

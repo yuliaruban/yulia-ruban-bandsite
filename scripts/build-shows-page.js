@@ -23,6 +23,13 @@ locationHeader.classList.add("shows__header--item");
 locationHeader.innerText = "LOCATION";
 divHeader.appendChild(locationHeader);
 
+const buttonHeader = document.createElement("button");
+buttonHeader.classList.add("shows__list__button");
+buttonHeader.innerText = "BUY TICKETS";
+buttonHeader.classList.add("shows__list__button--header");
+divHeader.appendChild(buttonHeader);
+
+
 var showsList = [{date: "Mon Sept 06 2021", venue: "Ronald Lane", location: "San Francisco, CA"},
 {date: "Tue Sept 21 2021", venue: "Pier 3 East", location: "San Francisco, CA"},
 {date: "Fri Oct 15 2021", venue: "View Lounge", location: "San Francisco, CA"},
@@ -42,6 +49,7 @@ for (let i = 0; i < showsList.length; i++) {
 
     const dateContent = document.createElement("p");
     dateContent.classList.add("shows__list__content");
+    dateContent.classList.add("shows__list__content--bolded");
     dateContent.innerHTML = showsList [i].date;   
     showsRow.appendChild(dateContent);    
 
@@ -65,9 +73,19 @@ for (let i = 0; i < showsList.length; i++) {
     locationContent.innerHTML = showsList [i].location;   
     showsRow.appendChild(locationContent);
 
-    const button = document.createElement("a");
-    button.setAttribute("href","#");
+    const button = document.createElement("button");
     button.classList.add("shows__list__button");
     button.innerText = "BUY TICKETS";
     showsRow.appendChild(button);
+}
+
+let showSelected = document.getElementsByClassName("shows__list");
+for (let i = 0; i < showSelected.length; i++ ) {
+    showSelected[i].addEventListener("click", function () {
+        let clicked = document.getElementsByClassName("shows__list--selected");
+        if (clicked.length > 0) {
+            clicked[0].className = clicked[0].className.replace(" shows__list--selected", "");
+        }
+        this.className += " shows__list--selected";
+    });
 }

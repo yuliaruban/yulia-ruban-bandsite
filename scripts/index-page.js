@@ -10,7 +10,6 @@ let commentList = [
   {name: "Miles Acosta", date: "12/20/2020", comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."}
   ];
 
-// 2. create function that will create elements based on appointments in array
 function createComment(comment) {
   const cardEl = document.createElement("article");
   cardEl.classList.add("comments__list");
@@ -40,7 +39,6 @@ function createComment(comment) {
   return cardEl;
 }
 
-// 3. create funciton that will render appointments to the html
 
 function displayComment() {
   const myAppointmentsEl = document.querySelector(".comments-history__container");
@@ -52,7 +50,6 @@ function displayComment() {
   }
 }
 
-//4. create form submit handler
 const formEl = document.querySelector(".comments__card");
 
 function formSubmitHandler(e) {
@@ -68,8 +65,6 @@ function formSubmitHandler(e) {
   commentList.unshift(newComment);
   displayComment();
 }
-
-// 5. attach event listener to the form
 
 formEl.addEventListener("submit", formSubmitHandler);
 
