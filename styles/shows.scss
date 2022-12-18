@@ -1,0 +1,177 @@
+@use './partials/global' as *;
+@use './partials/variables' as *;
+
+.hero {
+    background: 
+    linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+    ),
+    url(../assets/images/hero-shows.jpg);
+    background-color: rgba(50, 50, 50, .5);
+    background-size: cover;
+    background-position: center;
+    height: 90vw;
+    object-fit: cover;
+    @media (min-width:$tablet-width) {
+        height: 70vw;
+    }
+
+    &__wrapper {
+        @include display-column;
+        height: 90vw;
+        margin: 0 2rem;
+        padding-top: 3rem;
+        @media (min-width:$tablet-width) {
+            padding-top: 0;
+            margin: 0 4.5rem;
+            justify-content: center;
+            height: 70vw;
+        }
+        @media (min-width:$desktop-width) {
+            @include desktop;
+            flex-direction: row;
+            align-items: center;
+        }
+    }   
+
+    &__container {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        padding-bottom: 2.5rem;
+        @media (min-width:$tablet-width) {
+            width: 85%;
+            padding-bottom: 8rem;
+        }
+    }
+    
+    &__heading {
+        color: $color-White;
+        @include font-header;
+        font-family: "Avenir Next Demi";
+        @media (min-width:$tablet-width) {
+            font-size: 60px;
+            line-height: 68px;
+        }
+    }
+
+    &__subheading {
+        color: $color-White;
+        @include font-subheader;
+        @media (min-width:$tablet-width) {
+            font-size: 36px;
+            line-height: 44px;
+        }
+    }
+
+    &__song {
+        height: 115px;
+        @media (min-width: $tablet-width) {
+            width: 60%;
+            height: 25%;
+        }  
+        @media (min-width:$desktop-width) {
+            height: 20%;
+        }  
+    }
+}
+
+
+.shows {
+    &__wrapper {
+        @media (min-width:$tablet-width) {
+            @include display-column;
+            margin: 0 2.5rem 4rem 2.5rem;   
+        }
+        @media (min-width:$desktop-width) {
+            flex-direction: row;
+            @include desktop;   
+        }
+    }
+
+    &__heading {
+        @include font-header;
+        font-family: "Avenir Next Demi";
+        padding: 3rem 2rem 0 2rem;
+        @media (min-width:$tablet-width) {
+            padding: 6rem 0 4.5rem 2.5rem;
+            @include font-section;
+        }
+    }
+    &__container {
+        @media (min-width:$tablet-width) {
+            @include display-column;
+            width: 100%;  
+        } 
+        @media (min-width:$desktop-width) {
+            margin: 6rem 0 4rem 10rem;
+        }   
+    }
+
+    &__header {
+        display: none;
+        @media (min-width:$tablet-width) {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            &--item {
+                @include font-body;
+                font-family: "Avenir Next Demi";  
+                color: $color-Silver;
+                width: 15rem;
+            }
+        }    
+    }
+
+    &__list {
+        @include display-column;
+        padding: 2rem;
+        border-bottom: 1px solid $color-Mercury;
+        &:hover {
+            background-color: $color-Alabaster;
+        }
+        @media (min-width:$tablet-width) {
+            flex-direction: row;  
+            justify-content: space-between;
+            align-items: center;
+        }
+        &--selected {
+            background-color: $color-Mercury;
+            &:hover {
+                background-color: $color-Mercury;
+            }
+        }
+        &__heading {
+            font-size: 10px;
+            line-height: 20px;
+            font-family: "Avenir Next Demi";  
+            color: $color-Silver;
+            @media (min-width:$tablet-width) {
+                display: none;   
+            }
+
+        }
+        &__content {
+            @include font-body;
+            width: 15rem;
+            padding-bottom: 2rem;
+            @media (min-width:$tablet-width) {
+                padding: 0;  
+            }
+            &--bolded {
+                font-family: "Avenir Next Demi";  
+            }
+        }
+        &__button {
+            @include font-body;
+            @include button;
+            @media (min-width:$tablet-width) {
+                padding: 1rem 3rem; 
+            }
+            &--header {
+                visibility: hidden;
+            }
+        }
+    }
+}

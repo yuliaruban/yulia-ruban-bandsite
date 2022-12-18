@@ -1,8 +1,11 @@
+@use './variables' as *;
+
 * {
     margin: 0;
     padding: 0;
     font-family: "Avenir Next Regular";
     font-size: 8px;
+    color: $color-Black;
 }
 
 @font-face {
@@ -48,6 +51,11 @@
     line-height: 18px;
 }
 
+@mixin font-footer {
+    font-size: 14px;
+    line-height: 20px;
+}
+
 @mixin font-section {
     font-size: 36px;
     line-height: 44px;
@@ -63,8 +71,18 @@
     max-width: 120px;
 }
 
+@mixin button {
+    font-family: "Avenir Next Demi";
+    padding: 1rem 0;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    background-color: $color-Black;
+    color: $color-White;
+}
+
 header {
-    background-color: $primary-color-BandSite-Black;
+    background-color: $color-Black;
 }
 
 .navigation {
@@ -115,7 +133,7 @@ header {
         }
 
         &__link {
-            color: $secondary-color-Mercury;
+            color: $color-Mercury;
             text-decoration: none;
             @include font-subheader;
             &--active {
@@ -130,8 +148,8 @@ header {
 }
 
 .footer {
-    background-color: $primary-color-BandSite-Black;
-    color: $primary-color-BandSite-White;
+    background-color: $color-Black;
+    color: $color-White;
     &__wrapper {
         @include display-column;
         flex-wrap: wrap;
@@ -167,6 +185,7 @@ header {
     &__heading {
         @include font-header;
         font-family: "Avenir Next Demi";
+        color: $color-White;
         padding-top: 1.5rem;
         @media (min-width:$tablet-width) {
             @include font-section;
@@ -193,20 +212,34 @@ header {
         @include display-column;
         gap: 2rem;
         padding-bottom: 2rem;
-        @include font-body;
         @media (min-width:$tablet-width) {
-            font-size: 14px;
-            line-height: 20px;
             gap: 4.5rem;
         }
 
         &__heading {
+            @include font-body;
             font-family: "Avenir Next Demi";
+            color: $color-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
+        }
+
+        &__description {
+            @include font-body;
+            color: $color-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
         }
 
         &__mail {
+            @include font-body;
             text-decoration: none;
-            color: $primary-color-BandSite-White;
+            color: $color-White;
+            @media (min-width:$tablet-width) {
+                @include font-footer;
+            }
         }
     }
 
@@ -223,6 +256,7 @@ header {
     &__copy {
         font-size: 10px;
         line-height: 20px;
+        color: $color-White;
         width: 100%;
         @media (min-width:$tablet-width) {
             font-size: 12px;
