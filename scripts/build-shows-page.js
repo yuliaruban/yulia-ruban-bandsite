@@ -1,77 +1,68 @@
 function displayShows(data) {
-    const sectShows = document.querySelector(".shows__wrapper");
+    const sectionShows = document.querySelector(".shows__wrapper");
    
-    const divContain = document.createElement("div");
-    divContain.classList.add("shows__container");
-    sectShows.appendChild(divContain);
+    const divContainer = document.createElement("div");
+    divContainer.classList.add("shows__container");
+    sectionShows.appendChild(divContainer);
     
     const divHeader = document.createElement("div");
     divHeader.classList.add("shows__header");
-    divContain.appendChild(divHeader);
+    divContainer.appendChild(divHeader);
     
     const dateHeader = document.createElement("h3");
     dateHeader.classList.add("shows__header--item");
     dateHeader.innerText = "DATE";
-    divHeader.appendChild(dateHeader);
     
     const venueHeader = document.createElement("h3");
     venueHeader.classList.add("shows__header--item");
     venueHeader.innerText = "VENUE";
-    divHeader.appendChild(venueHeader);
     
     const locationHeader = document.createElement("h3");
     locationHeader.classList.add("shows__header--item");
     locationHeader.innerText = "LOCATION";
-    divHeader.appendChild(locationHeader);
     
     const buttonHeader = document.createElement("button");
-    buttonHeader.classList.add("shows__list__button");
+    buttonHeader.classList.add("shows__list__button", "shows__list__button--header");
     buttonHeader.innerText = "BUY TICKETS";
-    buttonHeader.classList.add("shows__list__button--header");
-    divHeader.appendChild(buttonHeader);
+
+    divHeader.append(dateHeader, venueHeader, locationHeader, buttonHeader);
 
     for(let i=0; i<data.length; i++) {
 
     const showsRow = document.createElement("div");
     showsRow.classList.add("shows__list");
-    divContain.appendChild(showsRow);
+    divContainer.appendChild(showsRow);
 
     const dateHeading = document.createElement("h3");
     dateHeading.classList.add("shows__list__heading");
     dateHeading.innerText = "DATE";
-    showsRow.appendChild(dateHeading);
 
     const dateContent = document.createElement("p");
-    dateContent.classList.add("shows__list__content");
-    dateContent.classList.add("shows__list__content--bolded");
+    dateContent.classList.add("shows__list__content", "shows__list__content--bolded");
     const options = {weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'};
     dateContent.innerHTML = new Date (data[i].date).toLocaleDateString("en", options).split(',').join('');;   
-    showsRow.appendChild(dateContent);    
 
     const venueHeading = document.createElement("h3");
     venueHeading.classList.add("shows__list__heading");
     venueHeading.innerText = "VENUE";
-    showsRow.appendChild(venueHeading);
 
     const venueContent = document.createElement("p");
     venueContent.classList.add("shows__list__content");
     venueContent.innerHTML = data[i].place;   
-    showsRow.appendChild(venueContent);
 
     const locationHeading = document.createElement("h3");
     locationHeading.classList.add("shows__list__heading");
     locationHeading.innerText = "LOCATION";
-    showsRow.appendChild(locationHeading);
 
     const locationContent = document.createElement("p");
     locationContent.classList.add("shows__list__content");
     locationContent.innerHTML = data[i].location;   
-    showsRow.appendChild(locationContent);
 
     const button = document.createElement("button");
     button.classList.add("shows__list__button");
     button.innerText = "BUY TICKETS";
-    showsRow.appendChild(button);
+    
+    showsRow.append(dateHeading, dateContent, venueHeading, venueContent, locationHeading, locationContent, button);
     }
 
     let showSelected = document.getElementsByClassName("shows__list");
