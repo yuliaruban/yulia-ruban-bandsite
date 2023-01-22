@@ -44,12 +44,21 @@ form.addEventListener("submit", newPost => {
     const newComment = axios.post(api + 'comments' + apiKey,
     {name: newPost.target.name.value,
     comment: newPost.target.comment.value});
-    
+
+    if (newPost.target.name.value.trim().length == 0) {
+        alert("Please enter your name");
+        form.reset();
+        return;
+    };
+
+    if (newPost.target.comment.value.trim().length == 0) {
+        alert("Please add a new comment");
+        form.reset();
+        return;
+    };
+
     newComment.then(result => {
-        const commentList = axios.get(api + 'comments' + apiKey)
-        commentList.then(result=> {
-            displayComment(result.data.reverse());
-        });
+        getComment ();
     });
     
     form.reset();
@@ -58,7 +67,14 @@ form.addEventListener("submit", newPost => {
 const api = `https://project-1-api.herokuapp.com/`;
 const apiKey = "?api_key=db1690a5-b9b9-4a90-a674-a9f6912c02d1";
 
+function getComment() {
 const commentList = axios.get(api + 'comments' + apiKey)
 commentList.then(result => {
-    displayComment(result.data.reverse());
+    displayComment(result.data.sort(function(a, b) {
+        return b.timestamp - a.timestamp;
+    })
+    );
 });
+}
+
+getComment ();
