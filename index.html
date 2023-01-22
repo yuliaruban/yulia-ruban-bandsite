@@ -65,10 +65,10 @@
                 <div class="comments__container">
                     <img class="comments__user" src="./assets/images/Mohan-muruge.jpg" alt="user profile photo">
                     <form class="comments__card">
-                        <label class="comments__card__label" for="name__input">NAME</label>
-                        <input class="comments__card__field" type="text" name="name" placeholder="Enter your name" required>
-                        <label class="comments__card__label" for="comment__input">COMMENT</label>
-                        <textarea class="comments__card__field comments__card__field--comment" name="comment" placeholder="Add a new comment" required></textarea>
+                        <label class="comments__card__label" for="name">NAME</label>
+                        <input class="comments__card__field" type="text" id="name" placeholder="Enter your name" required>
+                        <label class="comments__card__label" for="comment">COMMENT</label>
+                        <textarea class="comments__card__field comments__card__field--comment" id="comment" placeholder="Add a new comment" required></textarea>
                         <button class="comments__button">COMMENT</button>
                     </form>
                 </div>    
@@ -114,6 +114,7 @@
             <p class="footer__copy">Copyright The Bees Knees © 2021 All Rights Reserved</p> 
         </div>     
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
     <script src="./scripts/index-page.js"></script>
 </body>
 </html>
